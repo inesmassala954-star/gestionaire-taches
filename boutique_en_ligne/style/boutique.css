@@ -1,0 +1,11 @@
+/* Centrer le titre */
+h1 {
+    text-align: center;
+}
+
+/* Ajouter une couleur d'arrière-plan au panier */
+div#panier {
+    background-color: rgba(128, 128, 128, 0.619); /* gris... */
+    padding: 20px;            /* pour que ce soit plus joli */
+    border-radius: 8px;       /* optionnel mais pour arrondir un peut les bords */
+}
