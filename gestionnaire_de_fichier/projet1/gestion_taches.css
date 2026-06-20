@@ -1,0 +1,49 @@
+h1{
+  background-color: burlywood;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  border: solid 1px;
+}
+
+h2.total{
+  background-color: burlywood;
+  text-align: center;
+  border: solid 1px;
+
+}
+
+section h2{
+  border: solid 1px black;
+  text-align: center;
+  background-color: burlywood;
+  width: 100%;
+}
+
+input {
+    display: inline-block;
+    padding: 1px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+textarea{
+  display: inline-block;
+    padding: 1px;
+    border: 1px solid black;
+    border-radius: 7px;
+    font-size: 16px;
+    width: 100%;
+}
+
+div.controle{
+  background-color: antiquewhite;
+  border-radius: 16px;
+}
+
+div#taches div.tache {
+  flex-direction: column;
+  gap: 8px;
+}
