@@ -5,13 +5,23 @@ const initTaskItem = function (taskItem) {
     titre.addEventListener("click", function () {
         taskItem.classList.toggle("expanded");
     });
-
+ }
     /** classList manipule les classes CSS
      * toggle() veut dire: si la classe existe,elle est supprimer, 
      * sinon elle est rajouter
      * ici toggle est de la bibliotheque classliste
-     */
+     *
+     * ex
+     * <div class="task-item">
+    <h3>Titre</h3>
+    <div class="task-details">
+        <p>Description</p>
+    </div>
+</div>
 };
+initTaskItem(div)
+titre recupere <h3>titre</h3> quand on clique sur le titre,
+la class  du div devient "task-item expanded"**/
 
 /** une fonction qui ajoute les taches  */
 const add_tasks = function(){
@@ -61,3 +71,5 @@ document.getElementById("ajouter").addEventListener("click",add_tasks);
 document.querySelectorAll(".task-item").forEach(function(task){
     initTaskItem(task);
 });
+
+
