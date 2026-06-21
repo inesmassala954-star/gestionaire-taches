@@ -73,6 +73,7 @@ const add_tasks = function(){
     taskBlock.append(details);
     tasks.append(taskBlock);
     initTaskItem(taskBlock);
+    updatetask();
 
 }
 document.getElementById("ajouter").addEventListener("click",add_tasks);
@@ -114,3 +115,25 @@ const modify_tasks = function () {
  * si tu ajoute un element p, getelementbytagname("p") se met a jour automatiquement
  * queryselectorall  renvoie une liste figée
  */
+
+
+const updatetask = function (){
+    const total = document.getElementsByTagName("h3").length;
+    const span = document.getElementById("total");
+    span.textContent = total;
+    const details = document.getElementsByClassName("task-details");
+    let encours = 0 ;
+    let terminé = 0
+    for(var i = 0 ; i<details.length ; i++){
+        if (details[i].textContent.toLowerCase().includes("terminé")){
+            terminé +=1;
+        }
+        else {
+            encours +=1
+        }
+    }
+    const done = document.getElementById("done")
+    done.textContent = terminé;
+    const cours = document.getElementById("cours")
+    cours.textContent = encours;
+}

@@ -72,18 +72,6 @@ button {
   color: white;
 }
 
-div.tache button {
-  background-color: #eee;
-  color: #333;
-  border: 1px solid #ccc;
-}
-
-div.tache button:last-of-type {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-}
-
 div#taches div.tache {
   width: 100%;
   padding: 1rem;
@@ -91,15 +79,125 @@ div#taches div.tache {
   border: 1px solid #ddd;
   border-radius: 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-div.tache h3 {
-  margin: 0 0 0.5rem;
+/* --- Liste repliable : titre seul, détails au clic --- */
+
+.task-item {
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-div.tache p {
-  margin: 0.25rem 0;
-  color: #666;
+.task-item h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f8f9fc;
+  border: 1px solid #e2e6ef;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item h3:hover {
+  color: #5b7cfa;
+  background-color: #f0f3ff;
+  border-color: #c5cff5;
+}
+
+.task-item h3::after {
+  content: "›";
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: #5b7cfa;
+  transition: transform 0.25s ease;
+}
+
+.task-item.expanded h3 {
+  color: #3d56c9;
+  background-color: #e8eeff;
+  border-color: #5b7cfa;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 2px 6px rgba(91, 124, 250, 0.12);
+}
+
+.task-item.expanded h3::after {
+  transform: rotate(90deg);
+}
+
+.task-item .task-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin: 0;
+  padding: 0 1rem;
+  background-color: #fafbff;
+  border: 1px solid transparent;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    padding 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.task-item.expanded .task-details {
+  max-height: 400px;
+  opacity: 1;
+  padding: 0.85rem 1rem 1rem;
+  border-color: #5b7cfa;
+}
+
+.task-item p {
+  margin: 0;
+  padding: 0.35rem 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  border-bottom: 1px solid #eef1f6;
+}
+
+.task-item p:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0.75rem;
+}
+
+.task-item .task-details button {
+  margin-top: 0.25rem;
+  margin-right: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  background-color: #eee;
+  color: #333;
+  border: 1px solid #ccc;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.task-item .task-details button:hover {
+  background-color: #e2e2e2;
+  transform: translateY(-1px);
+}
+
+.task-item .task-details button:last-of-type {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+}
+
+.task-item .task-details button:last-of-type:hover {
+  background-color: #cf3f31;
 }
 
 section.taches {
