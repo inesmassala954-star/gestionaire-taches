@@ -23,6 +23,10 @@ initTaskItem(div)
 titre recupere <h3>titre</h3> quand on clique sur le titre,
 la class  du div devient "task-item expanded"**/
 
+const deletetasks = function(){
+    const task = this.parentElement.parentElement.remove()
+}
+
 /** une fonction qui ajoute les taches  */
 const add_tasks = function(){
     const name = document.getElementsByTagName("input")[0];
@@ -36,6 +40,8 @@ const add_tasks = function(){
     sup.style.backgroundColor = "#e74c3c";
     sup.style.color = "white";
     sup.style.border = "none";
+     
+    sup.addEventListener("click", deletetasks);
 
     sup.type = "button";
     mod.type = "button";
@@ -73,3 +79,4 @@ document.querySelectorAll(".task-item").forEach(function(task){
 });
 
 
+const modify_tasks = function(){}
