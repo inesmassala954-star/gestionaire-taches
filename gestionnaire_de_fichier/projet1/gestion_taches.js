@@ -24,7 +24,8 @@ titre recupere <h3>titre</h3> quand on clique sur le titre,
 la class  du div devient "task-item expanded"**/
 
 const deletetasks = function(){
-    const task = this.parentElement.parentElement.remove()
+    const task = this.parentElement.parentElement.remove();
+    updatetask();
 }
 
 /** une fonction qui ajoute les taches  */
@@ -107,6 +108,7 @@ const modify_tasks = function () {
 
     // supprimer la tâche actuelle (option simple)
     taskItem.remove();
+    updatetask();
 };
 
 /** la difference entre getelementbytagname et queryselector; getelementbytagname 
@@ -125,7 +127,7 @@ const updatetask = function (){
     let encours = 0 ;
     let terminé = 0
     for(var i = 0 ; i<details.length ; i++){
-        if (details[i].textContent.toLowerCase().includes("terminé")){
+        if (details[i].textContent.toLowerCase().includes("terminé") || details[i].textContent.toLowerCase().includes("terminée")) {
             terminé +=1;
         }
         else {
