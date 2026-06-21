@@ -53,6 +53,8 @@ const add_tasks = function(){
     mod.style.color = "#333";
     mod.style.border = "1px solid #ccc";
 
+    mod.addEventListener("click", modify_tasks);
+
     const titre  = document.createElement("h3");
     const details = document.createElement("div");
     details.className = "task-details";
@@ -79,4 +81,25 @@ document.querySelectorAll(".task-item").forEach(function(task){
 });
 
 
-const modify_tasks = function(){}
+const modify_tasks = function () {
+
+    const taskItem = this.closest(".task-item");
+
+    const title = taskItem.querySelector("h3");
+    const lines = taskItem.querySelectorAll("p");
+
+    const input = document.getElementsByTagName("input")[0];
+    const textarea = document.getElementsByClassName("taskinput")[0];
+
+    // remettre les valeurs dans les champs
+    input.value = title.textContent;
+
+    let text = "";
+    for (let i = 0; i < lines.length; i++) {
+        text += lines[i].textContent + "\n";
+    }
+    textarea.value = text.trim();
+
+    // supprimer la tâche actuelle (option simple)
+    taskItem.remove();
+};
