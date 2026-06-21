@@ -22,6 +22,7 @@ Tableau de bord avec statistiques.
     <meta author="MASSALA Ines" content="un gestionnaire de tache">
     <title>gestionnaire des tâches</title>
     <link rel="stylesheet" href="gestion_taches.css">
+    <script src="gestion_taches.js" defer></script>
 </head>
 <body>
     <header><h1> GESTIONNAIRE DES TACHES</h1></header>
@@ -30,19 +31,21 @@ Tableau de bord avec statistiques.
         <div class="controle">
             <input type="text" placeholder="Titre de la tâche">
 
-            <textarea placeholder="Description"></textarea>
+            <textarea class="taskinput" placeholder="Description"></textarea>
             <!--textarea permet de saisir plusieur lignes (ceci estun
             comentaire html)--> 
-            <button>Ajouter</button>
+            <button id="ajouter">Ajouter</button>
         </div>
         <div class="tache">
+            <div>
             <h3>Réviser HTML</h3>
             <p>Apprendre les balises HTML</p>
             <p>Date : 25/06/2026</p>
             <p>Statut : En cours</p>
 
-            <button>Modifier</button>
-            <button>Supprimer</button>
+            <button id="Modifier">Modifier</button>
+            <button id="supprimer">Supprimer</button>
+            </div>
         </div>
         <section class="taches">
             <h2>tableau de bord</h2>
