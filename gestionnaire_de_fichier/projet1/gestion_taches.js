@@ -84,6 +84,9 @@ document.querySelectorAll(".task-item").forEach(function(task){
 const modify_tasks = function () {
 
     const taskItem = this.closest(".task-item");
+    /** closest prend le parent le plus proche qui possede
+     * la classe task-item
+     */
 
     const title = taskItem.querySelector("h3");
     const lines = taskItem.querySelectorAll("p");
@@ -99,7 +102,15 @@ const modify_tasks = function () {
         text += lines[i].textContent + "\n";
     }
     textarea.value = text.trim();
+    /** trim enleve les espaces et retour a la ligne inutile a la fin */
 
     // supprimer la tâche actuelle (option simple)
     taskItem.remove();
 };
+
+/** la difference entre getelementbytagname et queryselector; getelementbytagname 
+ * recupere tous les elements hors que queryselector recupere le premier element 
+ * 
+ * si tu ajoute un element p, getelementbytagname("p") se met a jour automatiquement
+ * queryselectorall  renvoie une liste figée
+ */
